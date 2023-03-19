@@ -18,7 +18,7 @@ public class FindDuplicate {
 
 
         public static int findDuplicate ( int[] nums){
-            int slow = 0, fast = 0;
+            int slow = 0, fast=0;
 
             do {
                 slow = nums[slow];
