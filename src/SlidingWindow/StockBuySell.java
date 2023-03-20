@@ -1,5 +1,7 @@
 package SlidingWindow;
 
-public class StockBuySell {
+import org.w3c.dom.ls.LSOutput;
 
+public class StockBuySell {
+ LSOutput;
 }
