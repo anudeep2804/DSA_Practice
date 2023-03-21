@@ -5,6 +5,10 @@ package SlidingWindow;
 public class StockBuySell {
 
         public static int maxProfit(int[] prices) {
+
+            if(prices.length<=1){
+                return 0;
+            }
             int left = 0;
             int right = 1;
             int maxProfit = 0;
@@ -17,6 +21,7 @@ public class StockBuySell {
                     right++;
                 }
             }
+
             return maxProfit;
 
         }
