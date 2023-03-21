@@ -1,0 +1,30 @@
+******** Iterating a HashMap ******* :
+
+for (Map.Entry<String,Integer> mapElement : hm.entrySet()) {
+            String key = mapElement.getKey();
+            int value = mapElement.getValue();
+    System.out.println(key+":"+value);
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+****Array to HashMap conversion*****
+HashMap<Integer,Integer> hm= new HashMap<>();
+for(int i=0;i<arr.length;i++){
+ hm.put(arr[i],hm.getOrDefault(arr[i],0)+1);
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+*****PriorityQueue ***************
+Default Implementation (MinHeap) :
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+MaxHeap :
+
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+
+PriorityQueue with comparator :
+
+PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
