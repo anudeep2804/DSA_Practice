@@ -7,28 +7,21 @@ public class ValidParanthesis {
     public static  boolean isValid(String s) {
 
         Stack<Character> stack = new Stack<>();
-        boolean isvalid=false;
+        boolean isvalid = false;
 
-        if(s.length()<=1){
+        if (s.length() <= 1 || s.charAt(0) == ')' || s.charAt(0) == '}' || s.charAt(0) == ']') {
             return isvalid;
         }
 
-        if(s.charAt(0)==')'){
-            return isvalid;
-        }
 
-        if(s.charAt(0)=='}'){
-            return isvalid;
-        }
+        for (int i = 0; i < s.length(); i++) {
 
-        if(s.charAt(0)==']'){
-            return isvalid;
-        }
+            if(stack.isEmpty()==true){
+                stack.push(s.charAt(i));
+                continue;
+            }
 
-        stack.push(s.charAt(0));
-
-        for(int i=1;i<s.length();i++){
-            if(stack.peek()=='(' || stack.isEmpty()==true){
+            if(stack.peek()=='('){
                 if(s.charAt(i)==')'){
                     stack.pop();
                     continue;
@@ -39,7 +32,7 @@ public class ValidParanthesis {
                 }
             }
 
-            if(stack.peek()=='{' || stack.isEmpty()==true){
+            if(stack.peek()=='{'){
                 if(s.charAt(i)=='}'){
                     stack.pop();
                     continue;
@@ -50,30 +43,31 @@ public class ValidParanthesis {
                 }
             }
 
-            if(stack.peek()=='[' || stack.isEmpty()==true){
+            if(stack.peek()=='['){
                 if(s.charAt(i)==']'){
-                    stack.pop();continue;
+                    stack.pop();
+                    continue;
                 }
                 else{
                     stack.push(s.charAt(i));
                     continue;
                 }
             }
+
+
+
         }
 
         if(stack.isEmpty()==true){
-
             return true;
         }
-
-        else {
+        else{
             return false;
         }
-
     }
 
     public static void main(String[] args) {
-        boolean ans = isValid("(){}[]");
+        boolean ans = isValid("[{()}]");
         System.out.println(ans);
     }
 }
