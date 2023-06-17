@@ -25,25 +25,6 @@ public class ReverseLL {
                 return head;
             }
 
-            // if(head==null){
-            //     return null;
-            // }
-
-            // ListNode prev=null;
-            // ListNode cur=head;
-            // ListNode n= head.next;
-
-            // while(cur!=null){
-            //     cur.next=prev;
-            //     prev=cur;
-            //     cur=n;
-            //     if(n!=null){
-            //         n=n.next;
-            //     }
-
-            // }
-
-            // return prev;
 
             head = recursivereverse(head);
 
@@ -68,8 +49,6 @@ public class ReverseLL {
 
         }
 
-
-        // */
     }
 }
 
