@@ -4,7 +4,7 @@ import java.util.*;
 
 public class TopKFrequentElements {
 
-    public static int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent(int[] nums, int k) throws  ArrayIndexOutOfBoundsException {
     /* brute force idea
 
     Frequency hashamp of array will be given and all values in hashmap will be put into arraylist
@@ -36,6 +36,8 @@ public class TopKFrequentElements {
         int res[] = new int[k];
 
         int counter=0;
+
+
 
         for (int pos = bucket.length - 1; pos >= 0 && counter < k; pos--) {
             if (bucket[pos] != null) {
@@ -73,8 +75,8 @@ public class TopKFrequentElements {
      */
 
     public static void main(String[] args) {
-        int input[] = {1,1,1,1,2,2,3};
-        int ans[] = topKFrequent(input,2);
+        int input[] = {1,1,1,1,2,2,2,2,3};
+        int ans[] = topKFrequent(input,1);
         System.out.println(Arrays.toString(ans));
     }
 }
