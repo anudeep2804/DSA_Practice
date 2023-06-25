@@ -1,5 +1,10 @@
 package Trees;
 
+/*
+
+value '-1' in input array represents null node
+if the input provided cannot actually form a BT , you might see ArrayIndexOutofBoundsException.
+ */
 
 public class Build_BTree_From_Array {
 
