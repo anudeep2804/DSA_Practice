@@ -70,6 +70,16 @@ public class Build_BTree_From_Array {
             inorder(root.right);
 
         }
+
+        public static void postorder (Node root){
+            if(root==null){
+                return;}
+            postorder(root.left);
+            postorder(root.right);
+            System.out.print(root.data+" ");
+
+
+        }
     }
 
 
@@ -83,6 +93,11 @@ public class Build_BTree_From_Array {
         System.out.println();
         System.out.println("***** InOrder Traversal********** ");
         tree.inorder(root);
+        System.out.println();
+        System.out.println("***** PostOrder Traversal********** ");
+        tree.postorder(root);
+        System.out.println();
+        System.out.println("************************************");
     }
 
 }
