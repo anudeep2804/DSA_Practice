@@ -6,6 +6,8 @@ value '-1' in input array represents null node
 if the input provided cannot actually form a BT , you might see ArrayIndexOutofBoundsException.
  */
 
+import java.sql.SQLOutput;
+
 public class Build_BTree_From_Array {
 
     static class Node {
@@ -34,6 +36,40 @@ public class Build_BTree_From_Array {
             newNode.right = buildTree(nodes);
             return newNode;
         }
+
+        /*
+        PreOrder - Root , Left , Right
+        Time Complexity - O(n)
+         */
+        public static void  preorder(Node root){
+
+            System.out.print(root.data +" ");
+            if(root.left!=null){
+                preorder(root.left);
+            }
+            if(root.right!=null){
+                preorder(root.right);
+            }
+
+            if(root.left==null && root.right==null){
+                return;
+            }
+        }
+        /*
+       InOrder - Left , Root , Right.
+       Time Complexity - O(n)
+        */
+        public static void inorder(Node root){
+
+            if(root==null){
+                return;
+            }
+
+           inorder(root.left);
+            System.out.print(root.data + " ");
+            inorder(root.right);
+
+        }
     }
 
 
@@ -42,7 +78,11 @@ public class Build_BTree_From_Array {
         BinaryTree tree = new BinaryTree();
 
         Node root = tree.buildTree(nodes);
-        System.out.println(root.data);
+        System.out.println("*****  PreOderver Traversal ***** ");
+        tree.preorder(root);
+        System.out.println();
+        System.out.println("***** InOrder Traversal********** ");
+        tree.inorder(root);
     }
 
 }
