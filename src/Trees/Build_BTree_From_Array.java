@@ -19,7 +19,7 @@ public class Build_BTree_From_Array {
         Node(int data) {
             this.data = data;
             this.left = null;
-            this.right = null;
+          this.right = null;
         }
     }
 
@@ -43,17 +43,14 @@ public class Build_BTree_From_Array {
          */
         public static void  preorder(Node root){
 
-            System.out.print(root.data +" ");
-            if(root.left!=null){
-                preorder(root.left);
-            }
-            if(root.right!=null){
-                preorder(root.right);
-            }
-
-            if(root.left==null && root.right==null){
+            if(root==null){
                 return;
             }
+
+            System.out.print(root.data +" ");
+                preorder(root.left);
+                preorder(root.right);
+
         }
         /*
        InOrder - Left , Root , Right.
