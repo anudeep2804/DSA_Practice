@@ -23,7 +23,7 @@ public class LongestSubstringWithoutRepeatingChar {
     }
 
     public static void main(String[] args) {
-        String str="dvdf";
+        String str="anudeep";
         System.out.println(lengthOfLongestSubstring(str));
     }
 }
