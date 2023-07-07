@@ -41,6 +41,43 @@ public class Longest_Palindrome_Substring {
         return right-left-1;
     }
 
+    public String longestpalindrome_dp (String s ){
+
+        if(s==null || s.length()<2){
+            return s;
+        }
+
+        boolean[][] ispalindrome= new boolean[s.length()][s.length()];
+        int max=0; int left=0; int right=1;
+
+        for(int i=s.length()-1;i>=0;i--){
+            for( int j=i;j<s.length();j++){
+                if(i==j){
+                    ispalindrome[i][j]=true;
+                }
+                else if (s.charAt(i)==s.charAt(j)){
+                    if(j-i==1){
+                        ispalindrome[i][j]=true;
+                    }
+                    else{
+                        ispalindrome[i][j]= ispalindrome[i+1][j-1];
+                    }
+                }
+
+                if (ispalindrome[i][j] && j - i + 1 > max) {
+                    max = j - i + 1;
+                    left = i;
+                    right = j + 1;
+                }
+            }
+
+
+
+        }
+
+        return s.substring(left,right);
+    }
+
    /*
 
    Brute Force Method - O(n^3)
@@ -93,7 +130,7 @@ public class Longest_Palindrome_Substring {
 */
     public static void main(String[] args) {
         Longest_Palindrome_Substring longestPalindromeSubstring= new Longest_Palindrome_Substring();
-        String ans= longestPalindromeSubstring.longestPalindrome("racecar");
+        String ans= longestPalindromeSubstring.longestpalindrome_dp("anudeepbilla");
         System.out.println(ans);
 
     }
