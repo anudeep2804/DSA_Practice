@@ -40,7 +40,7 @@ public class ZigZagTraversalofBT {
             else {
 
                 for (int i = 0; i < currentqueuesize; i++) {
-                    currentnode = deque.removeLast();
+                    currentnode = deque.removeFirst();
                     templist.add(currentnode.val);
 
                     if (currentnode.right != null) {
