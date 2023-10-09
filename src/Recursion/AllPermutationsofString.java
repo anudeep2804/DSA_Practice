@@ -13,6 +13,10 @@ public class AllPermutationsofString {
 
         char ch = unprocessed.charAt(0);
 
+        /*
+        Calling the recursion based on length of processed length
+        for example if processed = a and unprocessed =b; the there are two options that is ba and ab
+         */
         for(int i=0;i<=processed.length();i++){
 
             String first= processed.substring(0,i);
