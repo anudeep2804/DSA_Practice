@@ -10,6 +10,8 @@ public class SymmetricBT {
 
         /*
 
+        My initial Bruteforce approach
+
         public boolean isSymmetric(TreeNode root) {
             if (root == null) return true; // An empty tree is symmetric
 
