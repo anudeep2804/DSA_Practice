@@ -2,7 +2,7 @@ package Trees;
 
 import java.util.Arrays;
 
-public class SortedArraytoBT {
+public class SortedArraytoBST {
 
     public TreeNode sortedArrayToBST(int[] nums) {
 
