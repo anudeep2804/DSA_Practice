@@ -2,18 +2,18 @@ package Trees;
 
 public class GoodNodesinBT {
 
-    int count =0;
+    int counter =0;
     public int goodNodes(TreeNode root) {
 
         if(root==null){
             return  0;
         }
 
-        count++;
+        counter++;
 
         helper(root, root.val);
 
-        return count;
+        return counter;
 
     }
 
@@ -24,7 +24,7 @@ public class GoodNodesinBT {
         }
 
         if(root.left!=null && root.left.val>= val){
-            count++;
+            counter++;
             helper(root.left, root.left.val);
         }
 
@@ -33,7 +33,7 @@ public class GoodNodesinBT {
         }
 
         if(root.right!=null && root.right.val>= val){
-            count++;
+            counter++;
             helper(root.right, root.right.val);
         }
 
