@@ -24,7 +24,6 @@ public class Last_Stone_Weight  {
             }
         }
 
-        // Check if there is a stone left and return its weight, otherwise return 0
         return maxHeap.isEmpty() ? 0 : maxHeap.poll();
     }
 
