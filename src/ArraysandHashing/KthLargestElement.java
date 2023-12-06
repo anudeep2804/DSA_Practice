@@ -10,14 +10,18 @@ public class KthLargestElement {
 
         for(int n : nums){
             priorityQueue.offer(n);
+
+            if(priorityQueue.size() > k){
+                priorityQueue.poll();
+            }
         }
 
-        int i=0;
-
-        while(i< nums.length-k){
-            priorityQueue.poll();
-            i++;
-        }
+//        int i=0;
+//
+//        while(i< nums.length-k){
+//            priorityQueue.poll();
+//            i++;
+//        }
 
         return  priorityQueue.peek();
     }
