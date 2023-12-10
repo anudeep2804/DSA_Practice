@@ -8,7 +8,6 @@ public class TransposeMatrix {
             return matrix;
         }
 
-
         int[][] result = new int[matrix[0].length][matrix.length];
 
         for(int i=0;i<matrix.length;i++){
@@ -16,8 +15,6 @@ public class TransposeMatrix {
                 result[j][i] = matrix[i][j];
             }
         }
-
-
         return result;
 
 
