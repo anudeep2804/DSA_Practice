@@ -16,8 +16,6 @@ public class Element_Occur_MoreThan25Percent {
             else{
                 count=1;
             }
-
-
         }
 
         return 1;
