@@ -2,11 +2,68 @@ package Recursion;
 
 import java.util.HashSet;
 
+//  https://leetcode.com/problems/string-to-integer-atoi/description/
+
 public class StringtoInteger {
 
-    //  https://leetcode.com/problems/string-to-integer-atoi/description/
+    long result=0;
+
+        public int myAtoi(String str) {
+            if (str == null || str.isEmpty()) {
+                return 0;
+            }
+
+            str = str.trim();
+            int sign = 1;
+            int index = 0;
+
+            if (index < str.length() && (str.charAt(index) == '+' || str.charAt(index) == '-')) {
+                sign = str.charAt(index) == '-' ? -1 : 1;
+                index++;
+            }
+
+            helper(str, index, sign);
+
+            // Apply the sign and handle overflow/underflow
+            if (sign == -1) {
+                result = -result;
+                if (result < Integer.MIN_VALUE) {
+                    return Integer.MIN_VALUE;
+                }
+            } else {
+                if (result > Integer.MAX_VALUE) {
+                    return Integer.MAX_VALUE;
+                }
+            }
+
+            return (int) result;
+        }
+
+        private void helper(String str, int index, int sign) {
+            if (index == str.length() || !Character.isDigit(str.charAt(index))) {
+                return;
+            }
+
+            int digit = str.charAt(index) - '0';
+
+            // Check for overflow and underflow
+            if (sign == 1 && (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && digit > Integer.MAX_VALUE % 10))) {
+                result = Integer.MAX_VALUE;
+                return;
+            }
+            if (sign == -1 && (result > -(long) Integer.MIN_VALUE / 10 || (result == -(long) Integer.MIN_VALUE / 10 && digit > -(long) Integer.MIN_VALUE % 10))) {
+                result = -(long) Integer.MIN_VALUE;
+                return;
+            }
+
+            result = result * 10 + digit;
+            helper(str, index + 1, sign);
+        }
+    }
 
 
+
+    /* Iterative Solution
         public int myAtoi(String str) {
             if (str == null || str.length() == 0) return 0;
 
@@ -42,4 +99,6 @@ public class StringtoInteger {
 
             return (int) result * sign;
         }
-    }
+
+*/
+
