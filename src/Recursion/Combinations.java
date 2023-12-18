@@ -38,4 +38,26 @@ public class Combinations {
         }
     }
 
+    private  void backtrack2(int i, ArrayList<Integer> templist , int n, int k) {
+
+
+        int size = templist.size();
+        if (size == k) {
+            List<Integer> temp = new ArrayList<>(templist);
+            result.add(temp);
+            return;
+        } else if (size > k || i > n) {
+            return;
+        }
+
+        templist.add(i);
+
+        backtrack2(i + 1, templist, n, k);
+
+        templist.remove(templist.size() - 1);
+
+        backtrack2(i + 1, templist, n, k);
+
+    }
+
 }
