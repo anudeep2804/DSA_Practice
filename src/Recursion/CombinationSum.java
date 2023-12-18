@@ -48,6 +48,26 @@ public class CombinationSum {
         }
     }
 
+    public void backtrack2(
+            int[] candidates,
+            int target,
+            List<List<Integer>> ans,
+            List<Integer> cur,
+            int index
+    ) {
+        if (target == 0) {
+            ans.add(new ArrayList(cur));
+        } else if (target < 0 || index >= candidates.length) {
+            return;
+        } else {
+            cur.add(candidates[index]);
+            backtrack2(candidates, target - candidates[index], ans, cur, index);
+
+            cur.remove(cur.get(cur.size() - 1));
+            backtrack2(candidates, target, ans, cur, index + 1);
+        }
+    }
+
     public static void main(String[] args) {
 
         CombinationSum combinationSum = new CombinationSum();
