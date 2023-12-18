@@ -27,27 +27,46 @@ public class Subsets {
         return result;
     }
 
-    public List<List<Integer>> subsetsrecursion ( int [] nums ){
+    public List<List<Integer>> subsetsrecursion(int[] nums) {
+        // Initialize the list to store all subsets
         List<List<Integer>> ans = new ArrayList<>();
+
+        // Add an empty subset to the list
         ans.add(new ArrayList<>());
 
-         helper(ans , nums);
+        // Call the helper function to generate all subsets
+        helper(ans, nums);
 
-         return  ans;
+        return ans;
     }
 
-    private List<List<Integer>>  helper(List<List<Integer>> ans, int[] nums) {
-
-        if(nums.length==0){
+    private List<List<Integer>> helper(List<List<Integer>> ans, int[] nums) {
+        // Base case: if nums is empty, return null as there are no more elements to process
+        if (nums.length == 0) {
             return null;
         }
-         int n = ans.size();
-        for( int i=0; i<n ;i++){
-            List<Integer> list  = new ArrayList<>(ans.get(i));
+
+        // Calculate the current size of the answer list
+        int n = ans.size();
+
+        // Iterate over all subsets generated so far
+        for (int i = 0; i < n; i++) {
+            // Create a new list by copying the current subset
+            List<Integer> list = new ArrayList<>(ans.get(i));
+
+            // Add the first element of nums to this new subset
             list.add(nums[0]);
+
+            // Add the new subset to the answer list
             ans.add(list);
         }
 
-        return helper(ans , Arrays.copyOfRange(nums , 1 , nums.length-1));
+        // Recursive call: process the remaining elements (excluding the first element)
+        // Here is the key concept of backtracking:
+        // We explore each subset by adding the current element and then
+        // move on to the next element. Once all subsets containing the current
+        // element are explored, the function backtracks to explore subsets without
+        // the current element.
+        return helper(ans, Arrays.copyOfRange(nums, 1, nums.length));
     }
 }
