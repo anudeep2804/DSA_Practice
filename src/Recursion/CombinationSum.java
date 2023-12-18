@@ -38,6 +38,7 @@ public class CombinationSum {
                 // Recursively call the backtrack function with the updated list and
                 // the remaining sum decreased by the number just added.
                 // The 'start' remains 'i' because we can reuse the same element.
+                System.out.println(tempList);
                 backtrack(list, tempList, nums, remain - nums[i], i);
 
                 // Backtrack: remove the last number added, so we can try
@@ -45,6 +46,15 @@ public class CombinationSum {
                 tempList.remove(tempList.size() - 1);
             }
         }
+    }
+
+    public static void main(String[] args) {
+
+        CombinationSum combinationSum = new CombinationSum();
+
+        List<List<Integer>> ans = combinationSum.combinationSum(new int[] {1,2,3 } , 4);
+
+        System.out.println(ans);
     }
 
 }
