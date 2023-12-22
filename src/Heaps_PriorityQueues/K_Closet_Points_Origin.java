@@ -11,6 +11,7 @@ public class K_Closet_Points_Origin {
 
         for(int[] point : points) {
             priorityQueue.add(point);
+
             if (priorityQueue.size() > k) {
                 priorityQueue.poll();
             }
