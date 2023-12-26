@@ -13,12 +13,23 @@ public class SubSetsII {
 
         Arrays.sort(nums);
 
-        backtrack(resultList , new ArrayList<>() , nums , 0);
+        backtrack2(resultList , new ArrayList<>() , nums , 0);
 
         return resultList;
 
 
     }
+
+    private void backtrack2(List<List<Integer>> list, List<Integer> tempList, int [] nums, int start) {
+        list.add(new ArrayList<>(tempList));
+        for (int i = start; i < nums.length; i++) {
+            if (i > start && nums[i] == nums[i - 1]) continue; // skip duplicates
+            tempList.add(nums[i]);
+            backtrack2(list, tempList, nums, i + 1);
+            tempList.remove(tempList.size() - 1);
+        }
+    }
+
 
     private void backtrack(List<List<Integer>> resultset, List<Integer> tempset, int[] nums, int start) {
 
