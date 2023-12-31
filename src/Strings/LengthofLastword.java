@@ -2,6 +2,8 @@ package Strings;
 
 public class LengthofLastword {
 
+    // Char Array based approach
+
     public int lengthOfLastWord(String s) {
 
         int counter=0;
