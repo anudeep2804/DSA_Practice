@@ -24,8 +24,8 @@ public class ConvertArray_to_2DArray {
             int size = result.size();
 
             for(int j=0 ; j<size;j++){
-                if(!result.get(i).contains(nums[i])){
-                    result.get(i).add(nums[i]);
+                if(!result.get(j).contains(nums[i])){
+                    result.get(j).add(nums[i]);
                     inserted=true;
                     break;
                 } else {
