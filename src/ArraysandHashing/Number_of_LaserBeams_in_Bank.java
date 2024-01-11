@@ -1,3 +1,6 @@
+
+package ArraysandHashing;
+
 public class Number_of_LaserBeams_in_Bank {
 
     public int numberOfBeams(String[] bank) {
