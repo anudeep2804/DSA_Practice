@@ -1,5 +1,9 @@
+
+
+package ArraysandHashing;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class Min_Ops_toMake_ArrayEmpty {
 
