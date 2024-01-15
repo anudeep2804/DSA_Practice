@@ -12,7 +12,6 @@ public class Graphs_DFS {
             return new ArrayList<>();
         }
 
-
         ArrayList<Integer> graph_dfs_list = new ArrayList<>();
 
         boolean visited[] = new boolean[V];
