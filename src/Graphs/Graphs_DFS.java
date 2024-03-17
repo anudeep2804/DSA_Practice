@@ -29,7 +29,6 @@ public class Graphs_DFS {
 
 
         if(adj.get(i).size() >0){
-
             for(Integer element : adj.get(i)){
                 if(!visited[element]){
                     helper(element , adj, graphDfsList, visited);
@@ -38,7 +37,6 @@ public class Graphs_DFS {
                     continue;
                 }
             }
-
         }
     }
 }
