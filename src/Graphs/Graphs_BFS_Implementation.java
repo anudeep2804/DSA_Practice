@@ -10,7 +10,7 @@ public class Graphs_BFS_Implementation {
 
         ArrayList<Integer> list_bfs = new ArrayList<>();
 
-        boolean visited[] = new boolean[V];
+        boolean[] visited = new boolean[V];
 
         Queue<Integer> queue = new LinkedList<>();
 
@@ -26,7 +26,7 @@ public class Graphs_BFS_Implementation {
 
 
             for( Integer it : adj.get(currentnode)){
-                if(visited[it]==false){
+                if(!visited[it]){
                     visited[it]=true;
                     queue.add(it);
                 }
