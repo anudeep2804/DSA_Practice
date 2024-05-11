@@ -40,13 +40,13 @@ public class DetectedCycle_UndirectedGraph_BFS
     // function to detect cycle in an undirected graph
     public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj)
     {
-        boolean vis[] = new boolean[V];
+        boolean[] vis = new boolean[V];
         Arrays.fill(vis,false);
-        int parent[] = new int[V];
+        int[] parent = new int[V];
         Arrays.fill(parent,-1);
 
         for(int i=0;i<V;i++)
-            if(vis[i]==false)
+            if(!vis[i])
                 if(checkForCycle(adj, i,vis, parent))
                     return true;
 
