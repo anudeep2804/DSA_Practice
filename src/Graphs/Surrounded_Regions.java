@@ -1,5 +1,6 @@
-class Solution {
+package Graphs;
 
+public class Surrounded_Regions {
     /**
      * Perform Depth-First Search (DFS) to mark 'O' regions connected to the border.
      * This ensures that any 'O' that is connected to the border is not surrounded by 'X'.
