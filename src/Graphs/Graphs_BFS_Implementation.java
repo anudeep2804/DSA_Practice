@@ -15,16 +15,12 @@ public class Graphs_BFS_Implementation {
         Queue<Integer> queue = new LinkedList<>();
 
         queue.offer(0);
-
-
+        
         while(!queue.isEmpty()){
 
             Integer currentnode = queue.poll();
             visited[currentnode] = true;
-
             list_bfs.add(currentnode);
-
-
             for( Integer it : adj.get(currentnode)){
                 if(!visited[it]){
                     visited[it]=true;
