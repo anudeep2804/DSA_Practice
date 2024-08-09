@@ -1,5 +1,6 @@
 package Graphs.ShortestPathAlgo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
@@ -63,6 +64,17 @@ public class ShortestPath_DAG {
         }
 
         stack.push(curr);
+    }
+
+    public static void main(String[] args) throws IOException {
+        int n = 6, m = 7;
+        int[][] edge = {{0,1,2},{0,4,1},{4,5,4},{4,2,2},{1,2,3},{2,3,6},{5,3,1}};
+        ShortestPath_DAG obj = new ShortestPath_DAG();
+        int res[] = obj.shortestPath(edge, n, m, 0);
+        for (int i = 0; i < n; i++) {
+            System.out.print(res[i] + " ");
+        }
+        System.out.println();
     }
 }
 
