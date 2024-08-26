@@ -2,7 +2,7 @@ package Graphs.ShortestPathAlgo;
 
 import java.util.*;
 
-class Dijkstras_Algo {
+class Dijkstra_Algo {
 
     static class Node implements Comparable<Node> {
         int vertex, distance;
