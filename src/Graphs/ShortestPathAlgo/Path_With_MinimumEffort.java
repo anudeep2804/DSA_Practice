@@ -1,6 +1,5 @@
 package Graphs.ShortestPathAlgo;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
@@ -8,7 +7,7 @@ public class Path_With_MinimumEffort {
 
     public int minimumEffortPath(int[][] heights) {
 
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((a,b)-> Integer.compare(a.effort, b.effort));
+        PriorityQueue<FlightNode> priorityQueue = new PriorityQueue<>((a, b)-> Integer.compare(a.effort, b.effort));
         int rows = heights.length;
         int cols = heights[0].length;
 
@@ -18,13 +17,13 @@ public class Path_With_MinimumEffort {
             Arrays.fill(a, Integer.MAX_VALUE);
         }
 
-        priorityQueue.add(new Node(0,0,0));
+        priorityQueue.add(new FlightNode(0,0,0));
         effortMatrix[0][0]=0;
 
         int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
         while (!priorityQueue.isEmpty()){
-            Node currentnode = priorityQueue.poll();
+            FlightNode currentnode = priorityQueue.poll();
             int r = currentnode.x;
             int c = currentnode.y;
             int currenteffort = currentnode.effort;
@@ -42,7 +41,7 @@ public class Path_With_MinimumEffort {
                     
                     if(newEffort < effortMatrix[newRow][newCol]){
                         effortMatrix[newRow][newCol] = newEffort;
-                        priorityQueue.add(new Node(newRow, newCol, newEffort));
+                        priorityQueue.add(new FlightNode(newRow, newCol, newEffort));
                     }
                 }
             }
