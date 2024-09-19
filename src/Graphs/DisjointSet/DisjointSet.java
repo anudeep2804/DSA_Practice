@@ -83,7 +83,7 @@ public class DisjointSet {
         }
     }
 
-    int findUltimateParent(int node){
+    public int findUltimateParent(int node){
         if(node == parent.get(node)){
             return node;
         }
@@ -92,7 +92,7 @@ public class DisjointSet {
         return parent.get(node);
     }
 
-    void unionByRank(int u, int v){
+   public  void unionByRank(int u, int v){
         int ulp_u = findUltimateParent(u);
         int ulp_v = findUltimateParent(v);
 
@@ -109,7 +109,7 @@ public class DisjointSet {
     }
 
 
-    void unionBySize(int u, int v){
+  public void unionBySize(int u, int v){
         int ulp_u = findUltimateParent(u);
         int ulp_v = findUltimateParent(v);
 
