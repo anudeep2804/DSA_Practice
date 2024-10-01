@@ -1,10 +1,10 @@
-package Graphs;
+package Graphs.unionFind;
 
 //https://leetcode.com/problems/number-of-operations-to-make-network-connected/
 
 import java.util.Arrays;
 
-public class UnionFind {
+public class NoOfOpstoMakeNetworkConnected {
 
     public int makeConnected(int n, int[][] connections) {
 
