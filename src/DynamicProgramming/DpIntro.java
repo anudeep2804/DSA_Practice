@@ -1,15 +1,16 @@
 package DynamicProgramming;
 
 /**
- * Approach one : Memomization ( store the values of your call stack to avoid recomputation)
- * Step 1 : Identify the recursion sub-problem , initialize and data structure to store values
- * Step 2 : perform the recursion step check if its already computed if yes return else continue
+ * Approach one : Memomization ( top down)
+ * Step 1 : express the recusrsion subproblem in terms of index
+ * Step 2: relate the recurrence relation in terms of index and perform required action
+ * Step 3: store the cal value , for given index if dp array already has a value return that value instead of doing recursion again
  */
 
 import java.util.Arrays;
 
 /**
- * Approach tow : Tabulation ( Iterative approach )
+ * Approach tow : Tabulation ( Iterative approach , Bottom up )
  * Iteratively solve the subproblems, starting from the smallest and working up.
  * Use a table (like an array) to store the solutions for the subproblems.
  * The final result is the value in the last cell of the table.
