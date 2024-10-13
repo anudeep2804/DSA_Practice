@@ -1,4 +1,4 @@
-package DpSubsets;
+package DynamicProgramming.DpSubsets;
 
 import java.util.Arrays;
 

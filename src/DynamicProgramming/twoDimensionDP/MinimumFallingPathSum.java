@@ -1,4 +1,4 @@
-package twoDimensionDP;
+package DynamicProgramming.twoDimensionDP;
 
 import java.util.Arrays;
 

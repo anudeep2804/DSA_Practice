@@ -1,6 +1,4 @@
-package DpSubsets;
-
-import java.util.Arrays;
+package DynamicProgramming.DpSubsets;
 
 public class CoinChangeII {
 

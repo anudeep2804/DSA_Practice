@@ -1,4 +1,4 @@
-package DpSubsets;
+package DynamicProgramming.DpSubsets;
 
 public class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
