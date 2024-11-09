@@ -7,17 +7,6 @@ interface Pizza {
 }
 
 // Basic Pizza types implementing the Pizza interface
-class Margherita implements Pizza {
-    @Override
-    public String getDescription() {
-        return "Margherita Pizza";
-    }
-
-    @Override
-    public double getCost() {
-        return 200.0; // Base price
-    }
-}
 
 class VegPizza implements Pizza {
     @Override
@@ -62,23 +51,35 @@ abstract class PizzaDecorator implements Pizza {
     }
 }
 
-// Concrete Decorators for different toppings
-class ExtraCheeseDecorator extends PizzaDecorator {
-    public ExtraCheeseDecorator(Pizza pizza) {
+// Size decorator
+class SizeDecorator extends PizzaDecorator {
+    private String size;  // e.g., "Base Size", "Extra Large"
+
+    public SizeDecorator(Pizza pizza, String size) {
         super(pizza);
+        this.size = size;
     }
 
     @Override
     public String getDescription() {
-        return pizza.getDescription() + " + Extra Cheese";
+        return pizza.getDescription() + " (" + size + ")";
     }
 
     @Override
     public double getCost() {
-        return pizza.getCost() + 50.0; // Extra cheese cost
+        switch (size) {
+            case "Extra Large":
+                return pizza.getCost() + 100.0; // Extra cost for larger size
+            case "Large":
+                return pizza.getCost() + 50.0;  // Slightly less extra cost
+            case "Base Size":
+            default:
+                return pizza.getCost(); // No extra cost for base size
+        }
     }
 }
 
+// Additional Topping Decorators
 class ExtraChickenDecorator extends PizzaDecorator {
     public ExtraChickenDecorator(Pizza pizza) {
         super(pizza);
@@ -114,20 +115,16 @@ class ExtraVeggiesDecorator extends PizzaDecorator {
 // Example usage class
 public class PizzaShop {
     public static void main(String[] args) {
-        // Create a Margherita with extra cheese
-        Pizza pizza1 = new ExtraCheeseDecorator(new Margherita());
+        // Create a Chicken Pizza with extra chicken and large size
+        Pizza pizza1 = new ExtraChickenDecorator(new SizeDecorator(new ChickenPizza(), "Large"));
         System.out.println(pizza1.getDescription() + " Cost: ₹" + pizza1.getCost());
 
-        // Create a Chicken Pizza with extra cheese and chicken
-        Pizza pizza2 = new ExtraChickenDecorator(
-                new ExtraCheeseDecorator(
-                        new ChickenPizza()));
+        // Create a Veg Pizza with extra veggies and extra large size
+        Pizza pizza2 = new ExtraVeggiesDecorator(new SizeDecorator(new VegPizza(), "Extra Large"));
         System.out.println(pizza2.getDescription() + " Cost: ₹" + pizza2.getCost());
 
-        // Create a Veg Pizza with extra cheese and veggies
-        Pizza pizza3 = new ExtraVeggiesDecorator(
-                new ExtraCheeseDecorator(
-                        new VegPizza()));
+        // Create a base size Chicken Pizza
+        Pizza pizza3 = new SizeDecorator(new ChickenPizza(), "Base Size");
         System.out.println(pizza3.getDescription() + " Cost: ₹" + pizza3.getCost());
     }
 }
