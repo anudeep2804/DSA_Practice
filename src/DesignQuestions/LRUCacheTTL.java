@@ -62,7 +62,7 @@ public class LRUCacheTTL {
             list.remove(cache);
             list.addFirst(cache);
         } else {
-            if (list.size() >= capacity) {
+            if (map.size() >= capacity) {
                 // Evict least recently used (last in the list)
                 Cache lruCache = list.removeLast();
                 map.remove(lruCache.key);
